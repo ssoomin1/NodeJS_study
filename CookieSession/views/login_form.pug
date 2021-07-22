@@ -1,0 +1,14 @@
+doctype html 
+html 
+    head 
+        title WELCOME PAGE 
+    body 
+        form(method="post" action="/login")
+            h2 Login Page
+            label(for="uid") userid: 
+            input(type="text" name="uid")
+            br
+            label(for="upass") userpass: 
+            input(type="password" name="upass")
+            br
+            button(type="submit") Login > 

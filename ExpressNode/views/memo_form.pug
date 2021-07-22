@@ -1,0 +1,19 @@
+doctype html 
+html
+    head
+        title 메모장 작성폼
+    body 
+        form(method="post" action="/memo")
+            h1 개인 메모장
+            label(for="uname") 작성자
+            input(type="text" name="uname" placeholder="김 탄")
+            br
+            label(for="write_date") 작성일자
+            input(type="text" name="write_date" placeholder="2021.07.21")
+            br
+            label(for="content") 내용작성
+            br
+            textarea(name="content")
+            br
+            button(type="submit") 저장
+            button(type="button") 취소

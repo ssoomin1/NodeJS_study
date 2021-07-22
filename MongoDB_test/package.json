@@ -1,0 +1,17 @@
+{
+  "name": "mongodbtest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db": "C:\\mongodb\\bin\\mongod --dbpath=C:\\mongodb\\data",
+    "dbshell": "C:\\mongodb\\bin\\mongo"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "description": ""
+}

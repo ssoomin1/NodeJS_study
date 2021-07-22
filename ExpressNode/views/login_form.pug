@@ -1,0 +1,13 @@
+doctype html
+html 
+    head 
+        title LoginFORM 
+    body 
+        form(method="post" action="/login")
+            label(for="uid") 아이디
+            input(type="text" name="uid") 
+            br
+            label(for="upw") 비밀번호
+            input(type="password" name="upw")
+            br
+            button(type="submit") login

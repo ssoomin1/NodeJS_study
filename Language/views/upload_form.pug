@@ -1,0 +1,23 @@
+doctype html 
+html 
+    head 
+        title LANG PAGE 
+    body 
+        h1 
+            a(href='/upload') Server Side Javascript
+        h2 Welcome 
+        h3 NodeJS World
+        br
+        form(method='post' action='/upload' enctype="multipart/form-data")
+            input(type="text" name="title" placeholder="title")
+            br 
+            br
+            textarea(name="description" placeholder="description")
+            br
+            br
+            p 
+                label(for="fname") 파일이름
+                input(type="file" name="userfile")
+
+            button(type="submit") 입력완료
+        

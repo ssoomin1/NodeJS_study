@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit_form</title>
+</head>
+<body>
+    <h1>Edit</h1>
+    <form action="/edit/<%=results.id %>" method="post">
+        id <input type="text" value="<%=results.id %>" name="id" disabled> <br>
+        name <input type="text" value="<%=results.name %>" name="uname"> <br>
+        emp_number <input type="text" value="<%=results.emp_number %>" name="enumber"> <br>
+        Email <input type="email" value="<%=results.email %>" name="uemail"><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

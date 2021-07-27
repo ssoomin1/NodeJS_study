@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <% lists.forEach((list)=>{ %>
+        <li> <a href="/read/<%=list.id %>"><%= list.id %></a> &nbsp;&nbsp; <%= list.name %>  &nbsp;&nbsp; <%= list.emp_number %>
+            &nbsp;&nbsp; <%= list.email %>  &nbsp;&nbsp; <%= list.reg_date %>
+        </li>
+    <% }) %>
+    <!-- <ul class="list-group">
+        <% lists.forEach((list)=>{ %>
+            <li class="list-group-item"><%=list.id %></li>
+            <li class="list-group-item"><%=list.name %></li>
+            <li class="list-group-item"><%=list.emp_number %></li>
+            <li class="list-group-item"><%=list.email%></li>
+            <li class="list-group-item"><%=list.reg_date%></li>
+        <% }) %>
+      </ul> -->
+
+      
+    
+</body>
+</html>

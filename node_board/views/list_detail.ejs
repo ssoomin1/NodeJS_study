@@ -13,8 +13,8 @@
         제목: <input type="text"  value="<%=lists.title %>" name="utitle" readonly> <br>
         내용: <textarea name="ucontent" rows="10" cols="50" readonly> <%=lists.content %> </textarea> <br>
         첨부된 파일: <input type="text"  value="<%=lists.file_name %>" name="ufile"> <br>
-        <a href="/check/<%=lists.id %>"><input type="button" value="수정"></a> &nbsp; 
-        <input type="button" value="삭제">
+        <a href="/check/<%=lists.id %>/1"><input type="button" value="수정"></a> &nbsp; 
+        <a href="/check/<%=lists.id %>/2"><input type="button" value="삭제"></a>
     </form>
 </body>
 </html>

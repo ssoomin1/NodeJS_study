@@ -61,7 +61,8 @@ const sql = {
     read : 'select * from board order by id desc',
     showdetail : 'select * from board where id=?',
     hitupdate : 'update board set hit=? where id=?',
-    edit:'update board set writer=?,title=?,content=?,b_passwd=?,file_name=?,modi_date=? where id=?'
+    edit:'update board set writer=?,title=?,content=?,b_passwd=?,file_name=?,modi_date=? where id=?',
+    delete : 'delete from board where writer=? and b_passwd=?'
 }
 
 
@@ -201,18 +202,21 @@ app.get('/showdetail/:lid',(req,res)=>{
 })
 
 //비밀번호 체크 폼
-app.get('/check/:lid',(req,res)=>{
+app.get('/check/:lid/:option',(req,res)=>{
     const id=req.params.lid;
+    const op = req.params.option;
+    console.log(op);
     conn.query(sql.showdetail,[id],(err,data)=>{
         if(err){console.log(err);}
         else{
-            res.render('check_form',{_id:id,username:data[0].writer});
+            res.render('check_form',{_id:id,username:data[0].writer,option:op});
         }
     })
 })
 
 //비밀번호 체크
-app.post('/check',(req,res)=>{
+app.post('/check/:option',(req,res)=>{
+    const option = req.params.option;
     const name=req.body.uwriter;
     const bpw=req.body.bpw;
     console.log(name+bpw);
@@ -222,7 +226,12 @@ app.post('/check',(req,res)=>{
            console.log(err);
         }else{
             if(result.length>0){
-                res.render('edit_form',{lists:result[0]});
+                //console.log(typeof option); //string
+                if(option==='1'){
+                    res.render('edit_form',{lists:result[0]});
+                }else if(option==='2'){
+                    res.redirect('/delete/name/bpw');
+                }
             }else{
                 res.send('<script type="text/javascript">alert("비밀번호가 틀렸습니다."); history.go(-1);</script>');
             }
@@ -248,6 +257,17 @@ app.post('/edit',upload.single('ufile'),(req,res)=>{
 })
 
 //글 삭제하기
+app.get('/delete/:writer/:bpw',(req,res)=>{
+    const writer = req.params.writer;
+    const bpw=req.params.bpw;
+    console.log("삭제부분:",writer,bpw)
+    conn.query(sql.delete,[writer,bpw],(err)=>{
+        if(err){console.log(err);}
+        else{
+            res.send('<script type="text/javascript">alert("삭제되었습니다."); document.location.href="/";</script>');
+        }
+    })
+})
 
 //로그아웃하기 =>로그아웃하면 세션삭제
 app.get('/logout',(req,res)=>{

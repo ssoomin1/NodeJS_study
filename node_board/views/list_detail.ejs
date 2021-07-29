@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+</head>
+<body>
+    <h1>글 디테일</h1>
+    <form method="post" action="/showdetail" enctype="multipart/form-data">
+        작성자: <input type="text" value="<%=lists.writer %>" name="uwriter" readonly> <br>
+        제목: <input type="text"  value="<%=lists.title %>" name="utitle" readonly> <br>
+        내용: <textarea name="ucontent" rows="10" cols="50" readonly> <%=lists.content %> </textarea> <br>
+        첨부된 파일: <input type="text"  value="<%=lists.file_name %>" name="ufile"> <br>
+        <a href="/check/<%=lists.id %>"><input type="button" value="수정"></a> &nbsp; 
+        <input type="button" value="삭제">
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <title>글목록 보여주기</title>
+</head>
+<body>
+    <h1>Write</h1>
+    <h1>Board List</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>제목</th>
+            <th>첨부파일</th>
+            <th>조회수</th>
+            <th>등록일</th>
+        </tr>
+        <% lists.forEach((list)=>{ %>
+            <tr>
+                <td><%= list.id %> </td>
+                <td><%= list.writer %> </td>
+                <td><a href="/showdetail/<%=list.id%>"><%= list.title %></a> </td>
+                <td><%= list.file_name %> </td>
+                <td><%= list.hit %> </td>
+                <td><%= list.reg_date %> </td>
+                <!-- <td><a href="/check/<%=list.user_name%>/1">edit</a></td>
+                <td><a href="/del/<%=list.user_name%>">delete</a></td> -->
+            </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

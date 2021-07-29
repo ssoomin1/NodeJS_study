@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+</head>
+<body>
+    <h1>글 수정하기</h1>
+    <form method="post" action="/edit" enctype="multipart/form-data">
+        아이디 : <input type="text" value="<%=lists.id%>" name="uid"><br>
+        작성자: <input type="text" value="<%=lists.writer %>" name="uwriter"> <br>
+        제목: <input type="text"  value="<%=lists.title %>" name="utitle"> <br>
+        내용: <textarea name="ucontent" rows="10" cols="50"> <%=lists.content %> </textarea> <br>
+        파일등록: <input type="file"  value="<%=lists.file_name %>" name="ufile"> <br>
+        글 비밀번호: <input type="text"  value="<%=lists.b_passwd %>" name="bpw"> <br>
+        <button type="submit">수정 </button>
+    </form>
+</body>
+</html>

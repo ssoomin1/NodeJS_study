@@ -230,7 +230,9 @@ app.post('/check/:option',(req,res)=>{
                 if(option==='1'){
                     res.render('edit_form',{lists:result[0]});
                 }else if(option==='2'){
-                    res.redirect('/delete/name/bpw');
+                   //res.render('deleting',{writer:name,_bpw:bpw});
+                   console.log('delete전:',name,bpw);
+                   res.redirect('/delete/'+name+'/'+bpw);
                 }
             }else{
                 res.send('<script type="text/javascript">alert("비밀번호가 틀렸습니다."); history.go(-1);</script>');
@@ -260,6 +262,8 @@ app.post('/edit',upload.single('ufile'),(req,res)=>{
 app.get('/delete/:writer/:bpw',(req,res)=>{
     const writer = req.params.writer;
     const bpw=req.params.bpw;
+    console.log(writer);
+    console.log(bpw);
     console.log("삭제부분:",writer,bpw)
     conn.query(sql.delete,[writer,bpw],(err)=>{
         if(err){console.log(err);}
